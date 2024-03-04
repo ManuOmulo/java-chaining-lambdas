@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -75,7 +76,15 @@ public class Main {
     list.forEach(System.out::println);
 
     System.out.println("-".repeat(50));
+    list.sort(Comparator.comparing(Person::lastName));
+    list.forEach(System.out::println);
 
+    System.out.println("-".repeat(50));
+    list.sort(Comparator.comparing(Person::lastName).thenComparing(Person::firstName));
+    list.forEach(System.out::println);
 
+    System.out.println("-".repeat(50));
+    list.sort(Comparator.comparing(Person::lastName).thenComparing(Person::firstName).reversed());
+    list.forEach(System.out::println);
   }
 }
